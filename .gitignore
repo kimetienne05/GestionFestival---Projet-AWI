@@ -1,0 +1,48 @@
+# Variables d'environnement
+.env
+.env.*
+!.env.example
+
+# Dépendances Node.js (VITAL pour le Front Angular et le Back Node.js)
+node_modules/
+
+# Builds et caches (Angular et back-end TypeScript)
+dist/
+build/
+out-tsc/
+.angular/
+
+# Volumes de base de données locale (Docker PostgreSQL)
+db/data/
+
+# Fichiers de log (incluant les crashs Node/npm)
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Artefacts
+cookies.txt
+
+# Fichiers générés par l'OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Configurations IDE et éditeurs de texte
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Fichiers de couverture de tests (CI/CD)
+coverage/
+.nyc_output/
+
+# Autre doc interne
+API.md
