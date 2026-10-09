@@ -1,0 +1,64 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: festival-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - backend
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s 
+
+  backend:
+    image: node:22-alpine
+    container_name: festival-api
+    working_dir: /app
+    volumes:
+      - ./backend:/app
+    command: tail -f /dev/null
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DB_HOST: db
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_NAME: ${DB_NAME}
+      SECRET_PEPPER: ${SECRET_PEPPER}
+    networks:
+      - public
+      - backend
+
+  frontend:
+    image: node:22-alpine
+    container_name: festival-front
+    working_dir: /app
+    volumes:
+      - ./frontend:/app
+    command: tail -f /dev/null
+    ports:
+      - "8080:8080"
+    depends_on:
+      - backend
+    networks:
+      - public
+
+networks:
+  public:
+  backend:
+
+volumes:
+  postgres-data:
