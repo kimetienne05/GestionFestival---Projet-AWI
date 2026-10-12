@@ -1,0 +1,28 @@
+# Build and configuration
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Version control
+.git
+.gitignore
+
+# Environment and secrets (Critique pour la sécurité)
+.env
+.env.*
+
+# Node.js et dépendances locales (Remplace tes anciennes lignes Deno)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build Angular (Évite de copier le cache du front)
+.angular/
+dist/
+
+# IDE and OS files
+.vscode/
+.idea/
+.DS_Store
+*.log
