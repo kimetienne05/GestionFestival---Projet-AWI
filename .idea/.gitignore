@@ -1,0 +1,15 @@
+# IDE
+.idea/
+*.iml
+
+# Dépendances
+node_modules/
+
+# Fichiers d'environnement
+.env
+.env.*
+!.env.example
+
+# Build
+dist/
+coverage/
