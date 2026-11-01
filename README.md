@@ -54,7 +54,7 @@ Docker, avec Docker Compose. Rien d'autre n'est à installer.
 ```bash
 git clone https://gitlab.polytech.umontpellier.fr/mathieu.marty/awi_kim_mathieu_ines.git
 cd awi_kim_mathieu_ines
-cp .env.example .env      # adapter les valeurs si besoin
+cp .env.exemple .env      # adapter les valeurs si besoin
 docker compose up --build
 ```
 
