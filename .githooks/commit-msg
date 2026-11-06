@@ -1,5 +1,5 @@
 #!/bin/sh
-# Vérifie le format des messages de commit (conventions/CONTRIBUTING.md, section 3).
+# Vérifie le format des messages de commit (CONTRIBUTING.md, section 3).
 # Activation, une fois par poste : git config core.hooksPath .githooks
 
 fichier="$1"
@@ -44,7 +44,7 @@ if ! printf '%s\n' "$message" | grep -Eq '^(Refs|Closes) #[0-9]+'; then
 fi
 
 if [ -n "$erreurs" ]; then
-  echo "Message de commit refusé (conventions/CONTRIBUTING.md, section 3) :" >&2
+  echo "Message de commit refusé (CONTRIBUTING.md, section 3) :" >&2
   printf '%s' "$erreurs" >&2
   echo "" >&2
   echo "Exemple :" >&2

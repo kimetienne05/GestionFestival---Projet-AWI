@@ -41,7 +41,7 @@ back/          API Node.js (routes → contrôleurs → services → dépôts, A
 front/         application Angular
 db/            image PostgreSQL et migrations numérotées (db/migrations/)
 docs/          DAT, ADR, besoin (PDF)
-conventions/   CONTRIBUTING.md : nommage, branches, commits, revues
+CONTRIBUTING.md  nommage, branches, commits, revues
 .claude/       consignes et commandes de l'assistant (rules/, commands/)
 .githooks/     crochet qui vérifie les messages de commit
 .gitlab/       modèle de merge request
@@ -62,7 +62,7 @@ Ne jamais proposer `npm install` sur le poste : les dépendances s'installent da
 
 ## 6. Git et conventions
 
-Le détail est dans `conventions/CONTRIBUTING.md`. L'essentiel :
+Le détail est dans `CONTRIBUTING.md`. L'essentiel :
 - branche `type/numero-issue-description` (`feat/28-prix-reservation`) ; jamais de travail direct sur `main` ;
 - commit `type(portée): description à l'impératif, en minuscules` puis, en dernière ligne, `Refs #n` ou `Closes #n` ;
 - pour commiter, utiliser `/commit` : proposer le message, puis **attendre la confirmation** avant `git commit` ;

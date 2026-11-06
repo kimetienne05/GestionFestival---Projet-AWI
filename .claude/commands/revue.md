@@ -5,7 +5,7 @@ argument-hint: "[branche cible, par défaut develop]"
 
 Relis les changements de la branche courante par rapport à `$ARGUMENTS` (par défaut `develop`) : `git fetch`, puis `git diff origin/<cible>...HEAD` et `git log origin/<cible>..HEAD`.
 
-Vérifie chaque point de `conventions/CONTRIBUTING.md` (section 4) et des règles de `.claude/rules/` :
+Vérifie chaque point de `CONTRIBUTING.md` (section 4) et des règles de `.claude/rules/` :
 
 1. **DAT et ADR** : couches respectées (ADR-005), droits vérifiés dans l'API (annexe C), masquage par liste blanche (ADR-002), routes présentes dans l'annexe G.
 2. **SQL** : uniquement dans `back/src/depots`, toujours paramétré ; transactions et verrous là où plusieurs tables sont écrites (ADR-008).

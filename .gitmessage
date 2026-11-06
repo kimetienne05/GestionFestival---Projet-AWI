@@ -10,4 +10,4 @@
 # Portées : front, api, db, ci, docker, docs, ou une fonctionnalité
 #           (reservations, factures, festivals, structures, jeux, suivi, auth, comptes)
 # Première ligne : 72 caractères au plus. « ! » après le type si cela casse la compatibilité.
-# Détail : conventions/CONTRIBUTING.md, section 3. Les lignes qui commencent par # sont ignorées.
+# Détail : CONTRIBUTING.md, section 3. Les lignes qui commencent par # sont ignorées.

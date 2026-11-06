@@ -12,7 +12,7 @@ Closes #
 
 <!-- Commandes ou étapes pour tester, par exemple : docker compose up --build, puis … -->
 
-## Liste de vérification (conventions/CONTRIBUTING.md, section 4)
+## Liste de vérification (CONTRIBUTING.md, section 4)
 
 Auteur, avant de demander la revue :
 - [ ] Le titre suit le format d'un message de commit

@@ -3,7 +3,7 @@ description: Propose un message de commit conforme à CONTRIBUTING.md, puis comm
 argument-hint: "[numéro d'issue]"
 ---
 
-Prépare un commit des changements **indexés**, selon `conventions/CONTRIBUTING.md` (section 3).
+Prépare un commit des changements **indexés**, selon `CONTRIBUTING.md` (section 3).
 
 1. Lis `git status`, `git diff --cached` et `git branch --show-current`.
    - Rien d'indexé : dis-le, montre les fichiers modifiés et arrête-toi. N'indexe rien sans accord.

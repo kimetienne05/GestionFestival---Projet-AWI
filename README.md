@@ -98,8 +98,7 @@ Le détail est dans les sections 7 et 8 du DAT.
 ├── .claude/
 │   ├── rules/              # règles de l'IA par partie du dépôt (back, front, db, déploiement, docs)
 │   └── commands/           # commandes /commit et /revue
-├── conventions/
-│   └── CONTRIBUTING.md     # nommage, branches, commits, merge requests
+├── CONTRIBUTING.md         # nommage, branches, commits, merge requests
 ├── .githooks/commit-msg    # vérifie le format des messages de commit
 ├── .gitmessage             # modèle de message de commit
 ├── .gitlab/merge_request_templates/Default.md   # liste de vérification des revues
@@ -126,7 +125,7 @@ Les fichiers de l'application (`front/`, `back/`, `db/migrations/`, compose et p
 | [`docs/besoins.pdf`](docs/besoins.pdf) | Besoin du client : notes d'entrevues, besoins, règles de gestion, questions ouvertes. Il fait référence en cas de désaccord avec le client. |
 | [`docs/dat.pdf`](docs/dat.pdf) | Architecture : contraintes, diagrammes C4, modèle de données, sécurité, déploiement, CI/CD, ADR, journal des évolutions |
 | [`docs/adr.pdf`](docs/adr.pdf) | Toutes les décisions d'architecture, avec leurs critères, leurs options et leurs conséquences |
-| [`conventions/CONTRIBUTING.md`](conventions/CONTRIBUTING.md) | Conventions de l'équipe : nommage, branches, commits, merge requests, outils à installer |
+| [`CONTRIBUTING.md`](CONTRIBUTING.md) | Conventions de l'équipe : nommage, branches, commits, merge requests, outils à installer |
 
 Les documents sont rédigés en LaTeX, avec l'accord de l'enseignant ; le dépôt contient les PDF compilés.
 
@@ -147,7 +146,7 @@ Chaque membre code dans toutes les couches (front-end, API, base de données).
 
 - La branche `main` est protégée : aucun push direct. Le développement se fait sur des branches de fonctionnalité.
 - Chaque tâche a une issue GitLab. Chaque changement passe par une merge request, relue et approuvée par un autre membre que son auteur.
-- Les branches et les messages de commit suivent [`conventions/CONTRIBUTING.md`](conventions/CONTRIBUTING.md) (par exemple `feat(reservations): calcule le prix avec la remise`). Après le clonage, chaque membre active la vérification des messages : `git config core.hooksPath .githooks` et `git config commit.template .gitmessage`.
+- Les branches et les messages de commit suivent [`CONTRIBUTING.md`](CONTRIBUTING.md) (par exemple `feat(reservations): calcule le prix avec la remise`). Après le clonage, chaque membre active la vérification des messages : `git config core.hooksPath .githooks` et `git config commit.template .gitmessage`.
 - Le pipeline lance le lint et les tests sur chaque branche et chaque merge request ; un échec bloque la fusion. Seule la branche `main` déclenche la construction des images et le déploiement.
 
 ## Utilisation de l'IA
@@ -171,5 +170,5 @@ L'énoncé autorise les assistants IA, à condition que l'équipe décide et ma�
   - les ADR proposés par l'IA restent au statut « Proposée » jusqu'à leur relecture et leur acceptation par l'équipe ;
   - le code suit le circuit normal des merge requests, relues par un humain.
 - **Décisions** : les choix d'architecture, l'interprétation du besoin et les échanges avec le client relèvent de l'équipe, pas de l'IA.
-- **Instructions** : `CLAUDE.md`, à la racine, contient les consignes générales données à l'assistant de codage ; `.claude/rules/` les précise pour chaque partie du dépôt (back, front, base, déploiement, documentation) et `.claude/commands/` fournit les commandes `/commit` et `/revue`. Ces fichiers sont versionnés et relus comme le code (détail dans `conventions/CONTRIBUTING.md`, section 6).
+- **Instructions** : `CLAUDE.md`, à la racine, contient les consignes générales données à l'assistant de codage ; `.claude/rules/` les précise pour chaque partie du dépôt (back, front, base, déploiement, documentation) et `.claude/commands/` fournit les commandes `/commit` et `/revue`. Ces fichiers sont versionnés et relus comme le code (détail dans `CONTRIBUTING.md`, section 6).
 - **Traçabilité** : une contribution importante de l'IA est signalée dans la description de la merge request.
