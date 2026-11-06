@@ -94,34 +94,41 @@ Le détail est dans les sections 7 et 8 du DAT.
 ```
 .
 ├── README.md
-├── CLAUDE.md               # instructions données à l'assistant IA (voir « Utilisation de l'IA »)
+├── CLAUDE.md               # consignes générales de l'assistant IA (voir « Utilisation de l'IA »)
+├── .claude/
+│   ├── rules/              # règles de l'IA par partie du dépôt (back, front, db, déploiement, docs)
+│   └── commands/           # commandes /commit et /revue
+├── conventions/
+│   └── CONTRIBUTING.md     # nommage, branches, commits, merge requests
+├── .githooks/commit-msg    # vérifie le format des messages de commit
+├── .gitmessage             # modèle de message de commit
+├── .gitlab/merge_request_templates/Default.md   # liste de vérification des revues
 ├── docs/
-│   ├── DAT.tex, DAT.pdf    # Document d'Architecture Technique
-│   ├── ADR-registre.tex, ADR-registre.pdf
-│   ├── besoin.tex, besoin.pdf   # document de besoin, qui fait référence
-│   ├── preambule.tex, adr-fiches.tex, besoins-contenu.tex, entrevues-table.tex
-│   ├── logos/
-│   └── adr/                # une fiche par ADR
+│   ├── dat.pdf             # Document d'Architecture Technique
+│   ├── adr.pdf             # registre des décisions d'architecture
+│   └── besoins.pdf         # document de besoin, qui fait référence
 ├── front/                  # application Angular
 ├── back/                   # API Node.js, TypeScript, Express
 ├── db/
 │   └── migrations/         # scripts SQL numérotés (001_initial.sql…)
 ├── docker-compose.yml      # développement
 ├── docker-compose.prod.yml # production (images du registre)
+├── .env.example            # variables d'environnement, valeurs d'exemple
 └── .gitlab-ci.yml          # pipeline CI/CD
 ```
 
-> À ajuster si la structure réelle du dépôt est différente.
+Les fichiers de l'application (`front/`, `back/`, `db/migrations/`, compose et pipeline) arrivent au fil des issues.
 
 ## Documentation
 
 | Document | Contenu |
 |---|---|
-| [`docs/besoin.pdf`](docs/besoin.pdf) | Besoin du client : notes d'entrevues, besoins, règles de gestion, questions ouvertes. Il fait référence en cas de désaccord avec le client. |
-| [`docs/DAT.pdf`](docs/DAT.pdf) | Architecture : contraintes, diagrammes C4, modèle de données, sécurité, déploiement, CI/CD, ADR, journal des évolutions |
-| [`docs/ADR-registre.pdf`](docs/ADR-registre.pdf) | Toutes les décisions d'architecture, avec leurs critères, leurs options et leurs conséquences |
+| [`docs/besoins.pdf`](docs/besoins.pdf) | Besoin du client : notes d'entrevues, besoins, règles de gestion, questions ouvertes. Il fait référence en cas de désaccord avec le client. |
+| [`docs/dat.pdf`](docs/dat.pdf) | Architecture : contraintes, diagrammes C4, modèle de données, sécurité, déploiement, CI/CD, ADR, journal des évolutions |
+| [`docs/adr.pdf`](docs/adr.pdf) | Toutes les décisions d'architecture, avec leurs critères, leurs options et leurs conséquences |
+| [`conventions/CONTRIBUTING.md`](conventions/CONTRIBUTING.md) | Conventions de l'équipe : nommage, branches, commits, merge requests, outils à installer |
 
-Les documents sont rédigés en LaTeX, avec l'accord de l'enseignant : les sources `.tex` sont dans `docs/`, avec les PDF compilés. Pour recompiler, lancer `pdflatex DAT.tex` deux fois dans `docs/` (même chose pour `ADR-registre.tex` et `besoin.tex`).
+Les documents sont rédigés en LaTeX, avec l'accord de l'enseignant ; le dépôt contient les PDF compilés.
 
 Le DAT est versionné par des tags Git : `dat-v1` pour la version initiale, puis un tag par version suivante (`dat-v1.1`…). Chaque changement est noté dans le journal des évolutions du DAT, en distinguant les évolutions décidées des écarts subis.
 
@@ -140,19 +147,23 @@ Chaque membre code dans toutes les couches (front-end, API, base de données).
 
 - La branche `main` est protégée : aucun push direct. Le développement se fait sur des branches de fonctionnalité.
 - Chaque tâche a une issue GitLab. Chaque changement passe par une merge request, relue et approuvée par un autre membre que son auteur.
-- Les messages de commit sont explicites (par exemple `feat(reservations): calcul du prix avec remise`).
+- Les branches et les messages de commit suivent [`conventions/CONTRIBUTING.md`](conventions/CONTRIBUTING.md) (par exemple `feat(reservations): calcule le prix avec la remise`). Après le clonage, chaque membre active la vérification des messages : `git config core.hooksPath .githooks` et `git config commit.template .gitmessage`.
 - Le pipeline lance le lint et les tests sur chaque branche et chaque merge request ; un échec bloque la fusion. Seule la branche `main` déclenche la construction des images et le déploiement.
 
 ## Utilisation de l'IA
 
 L'énoncé autorise les assistants IA, à condition que l'équipe décide et maîtrise tout ce qui est livré.
 
-- **Outils** : Claude (Anthropic), utilisé dans l'interface claude.ai. *À compléter : autres outils utilisés par chaque membre, par exemple un assistant de code dans l'éditeur.*
+- **Outils** :
+  - Claude (Anthropic), dans l'interface claude.ai ;
+  - Claude Code, l'assistant de code d'Anthropic, dans VS Code (Mathieu Marty) ; il lit les consignes du dépôt (voir « Instructions ») ;
+  - *à compléter par chaque membre : ses propres outils.*
 - **Tâches** :
   - restructuration du DAT selon la trame et relecture de sa cohérence avec l'énoncé ;
   - rédaction d'ADR à partir des options discutées en équipe ;
   - dessin des diagrammes en TikZ ;
   - explications techniques (sécurité, SQL, déploiement) ;
+  - configuration Docker, revue des issues GitLab au regard du DAT, rédaction des conventions et des consignes de l'IA ;
   - aide au code et aux revues.
 - **Vérifications** :
   - tout contenu produit par l'IA est relu, vérifié et adapté par un membre avant d'être commité ;
@@ -160,5 +171,5 @@ L'énoncé autorise les assistants IA, à condition que l'équipe décide et ma�
   - les ADR proposés par l'IA restent au statut « Proposée » jusqu'à leur relecture et leur acceptation par l'équipe ;
   - le code suit le circuit normal des merge requests, relues par un humain.
 - **Décisions** : les choix d'architecture, l'interprétation du besoin et les échanges avec le client relèvent de l'équipe, pas de l'IA.
-- **Instructions** : le fichier `CLAUDE.md`, à la racine, contient les consignes données à l'assistant de codage.
+- **Instructions** : `CLAUDE.md`, à la racine, contient les consignes générales données à l'assistant de codage ; `.claude/rules/` les précise pour chaque partie du dépôt (back, front, base, déploiement, documentation) et `.claude/commands/` fournit les commandes `/commit` et `/revue`. Ces fichiers sont versionnés et relus comme le code (détail dans `conventions/CONTRIBUTING.md`, section 6).
 - **Traçabilité** : une contribution importante de l'IA est signalée dans la description de la merge request.

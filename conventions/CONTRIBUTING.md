@@ -1,6 +1,6 @@
 # Conventions du projet
 
-Ce fichier fixe les règles de nommage, de commit et de revue. Il s'applique à toute l'équipe **et à l'assistant IA** : `CLAUDE.md` l'importe, donc l'assistant le lit à chaque session.
+Ce fichier fixe les règles de nommage, de branches, de commit et de revue. Il s'applique à toute l'équipe **et à l'assistant IA** : `CLAUDE.md` (à la racine) et les règles de `.claude/rules/` en reprennent l'essentiel, et les commandes `/commit` et `/revue` s'appuient sur lui (section 6).
 
 ## 1. Nommage dans le code
 
@@ -57,7 +57,7 @@ fix/27-capacite-zone-depassee
 docs/5-dat-endpoints
 ```
 
-On ne travaille jamais directement sur `main`.
+On ne travaille jamais directement sur `main` ni sur `develop` : chaque branche part de `develop` et y revient par une merge request.
 
 ## 3. Messages de commit
 
@@ -88,7 +88,7 @@ Refs #12
 | `chore` | tâches diverses |
 
 - **Portées** : `front`, `api`, `db`, `ci`, `docker`, `docs`, ou une fonctionnalité (`reservations`, `factures`, `festivals`, `structures`, `jeux`, `suivi`, `auth`, `comptes`).
-- **Dernière ligne** : le numéro d'issue, avec `Refs #12`, ou `Closes #12` si le commit termine l'issue.
+- **Dernière ligne** : le numéro d'issue, avec `Refs #12`, ou `Closes #12` si le commit termine l'issue. Seules des lignes d'attribution (`Co-Authored-By: …`) peuvent la suivre.
 - Changement qui casse la compatibilité (route, schéma) : `!` après le type, par exemple `feat(api)!: …`, et le détail dans le corps.
 
 Exemples :
@@ -100,13 +100,13 @@ docs(dat): ajoute les codes HTTP à la liste des endpoints
 test(factures): vérifie qu'une facture émise ne peut pas être modifiée
 ```
 
-Le format est vérifié par le crochet `../../../Téléchargements/conventions/.githooks/commit-msg` (installation en section 5).
+Le format est vérifié par le crochet `.githooks/commit-msg` (installation en section 5) : un message non conforme est refusé, avec l'explication. Les messages produits par git lui-même (`Merge …`, `Revert …`) sont acceptés.
 
 ## 4. Merge requests et revues
 
 - Une merge request par issue. Son titre suit le même format qu'un message de commit.
 - Elle est **relue et approuvée par un autre membre que son auteur** avant d'être fusionnée. Le pipeline doit être vert.
-- Le modèle `../../../Téléchargements/conventions/.gitlab/merge_request_templates/Default.md` fournit la liste de vérification de la revue.
+- Le modèle `.gitlab/merge_request_templates/Default.md` pré-remplit la description de chaque merge request avec la liste de vérification de la revue (choisir le modèle « Default » s'il n'est pas proposé d'office).
 - La personne qui relit vérifie au minimum :
   - le respect du DAT et des ADR (couches, SQL dans les dépôts, droits dans l'API) ;
   - les requêtes SQL paramétrées ;
@@ -119,9 +119,24 @@ Le format est vérifié par le crochet `../../../Téléchargements/conventions/.
 
 ## 5. Installer les outils (une fois par poste)
 
+À lancer à la racine du dépôt, après le clonage :
+
 ```bash
 git config core.hooksPath .githooks     # active la vérification des messages de commit
 git config commit.template .gitmessage  # affiche le modèle dans l'éditeur au moment du commit
 ```
 
-Avec Claude Code, la commande `/commit` propose un message conforme à partir des changements indexés (`../../../Téléchargements/conventions/.claude/commands/commit.md`).
+Pour vérifier : `git commit --allow-empty -m "essai"` doit être refusé avec une explication.
+
+## 6. Assistant IA (Claude Code)
+
+| Fichier | Rôle |
+|---|---|
+| `CLAUDE.md` (racine) | consignes générales, chargées à chaque session |
+| `.claude/rules/*.md` | règles par partie du dépôt (`back`, `front`, `db`, `deploiement`, `docs`), chargées seulement quand l'assistant travaille sur les fichiers concernés |
+| `.claude/commands/commit.md` | commande `/commit` : propose un message conforme à partir des changements indexés, puis attend la confirmation avant de commiter |
+| `.claude/commands/revue.md` | commande `/revue` : relit la branche avec la liste de vérification de la section 4, sans rien modifier |
+
+- Ces fichiers sont versionnés et suivent le circuit normal des merge requests : on les modifie comme du code.
+- Une règle qui change ici doit aussi changer dans `CLAUDE.md` ou `.claude/rules/`, et inversement.
+- Préférences personnelles : `CLAUDE.local.md` et `.claude/settings.local.json`, ignorés par git.
