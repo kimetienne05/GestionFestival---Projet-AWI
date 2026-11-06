@@ -39,10 +39,10 @@ Quatre couches. Chaque couche n'appelle que celle du dessous :
 
 | Couche | Dossier | Rôle | Interdit |
 |---|---|---|---|
-| Routes | `api/src/routes` | URL, méthode, intergiciels de droits (`exigerNiveau(n)`, `exigerRole('tresorier')`) | logique métier, SQL |
-| Contrôleurs | `api/src/controleurs` | lire la requête, la valider avec `zod`, appeler le service, choisir le code HTTP | SQL, règles métier |
-| Services | `api/src/services` | règles métier (prix, remises, capacité, workflow, masquage) | `req`, `res`, tout ce qui touche à HTTP, SQL |
-| Dépôts | `api/src/depots` | **seul** endroit qui contient du SQL | règles métier |
+| Routes | `back/src/routes` | URL, méthode, intergiciels de droits (`exigerNiveau(n)`, `exigerRole('tresorier')`) | logique métier, SQL |
+| Contrôleurs | `back/src/controleurs` | lire la requête, la valider avec `zod`, appeler le service, choisir le code HTTP | SQL, règles métier |
+| Services | `back/src/services` | règles métier (prix, remises, capacité, workflow, masquage) | `req`, `res`, tout ce qui touche à HTTP, SQL |
+| Dépôts | `back/src/depots` | **seul** endroit qui contient du SQL | règles métier |
 
 Règles SQL :
 - **Toujours** des requêtes paramétrées (`$1`, `$2`…). **Jamais** de concaténation ni de gabarit de chaîne avec une valeur reçue.
@@ -79,7 +79,7 @@ Règles SQL :
 
 ## 7. Front-end
 
-- Un dossier par fonctionnalité dans `frontend/src/app/features/` ; `core/` pour l'authentification, les intercepteurs et les gardes ; `shared/` pour les composants réutilisables.
+- Un dossier par fonctionnalité dans `front/src/app/features/` ; `core/` pour l'authentification, les intercepteurs et les gardes ; `shared/` pour les composants réutilisables.
 - Routes chargées à la demande (`loadChildren`), gardes `canMatch`.
 - État : chaque service expose des signaux en lecture seule, et des `computed` pour les valeurs dérivées. Pas de NgRx.
 - Appels à l'API par `HttpClient` avec `withCredentials`, un service par ressource.
@@ -111,7 +111,7 @@ Règles SQL :
 
 **Ne jamais** :
 - ajouter un ORM, un query builder ou un framework back-end ;
-- écrire du SQL hors de `api/src/depots`, ou du SQL non paramétré ;
+- écrire du SQL hors de `back/src/depots`, ou du SQL non paramétré ;
 - désactiver une vérification de sécurité ou un test pour « faire passer » le pipeline ;
 - commiter un secret, un fichier `.env` ou une clé.
 

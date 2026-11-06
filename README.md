@@ -102,8 +102,8 @@ Le détail est dans les sections 7 et 8 du DAT.
 │   ├── preambule.tex, adr-fiches.tex, besoins-contenu.tex, entrevues-table.tex
 │   ├── logos/
 │   └── adr/                # une fiche par ADR
-├── frontend/               # application Angular
-├── api/                    # API Node.js, TypeScript, Express
+├── front/                  # application Angular
+├── back/                   # API Node.js, TypeScript, Express
 ├── db/
 │   └── migrations/         # scripts SQL numérotés (001_initial.sql…)
 ├── docker-compose.yml      # développement

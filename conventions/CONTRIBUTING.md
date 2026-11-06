@@ -19,11 +19,11 @@ Ce fichier fixe les règles de nommage, de commit et de revue. Il s'applique à 
 Un fichier par ressource et par couche, nommé `<ressource>.<couche>.ts` :
 
 ```
-api/src/routes/reservation.routes.ts
-api/src/controleurs/reservation.controleur.ts
-api/src/services/reservation.service.ts
-api/src/depots/reservation.depot.ts
-api/src/types/reservation.types.ts
+back/src/routes/reservation.routes.ts
+back/src/controleurs/reservation.controleur.ts
+back/src/services/reservation.service.ts
+back/src/depots/reservation.depot.ts
+back/src/types/reservation.types.ts
 ```
 
 - Fonctions de dépôt : un verbe et ce qu'elles renvoient (`trouverParId`, `listerParFestival`, `creer`, `verrouillerZones`).
@@ -44,7 +44,7 @@ api/src/types/reservation.types.ts
 
 ### Front-end
 
-- Un dossier par fonctionnalité dans `frontend/src/app/features/` ; `core/` et `shared/` comme décrit dans le DAT.
+- Un dossier par fonctionnalité dans `front/src/app/features/` ; `core/` et `shared/` comme décrit dans le DAT.
 - Composants standalone, signaux, `inject()`, `@if` / `@for` uniquement.
 
 ## 2. Branches
