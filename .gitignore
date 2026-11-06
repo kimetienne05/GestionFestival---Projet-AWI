@@ -14,3 +14,7 @@ node_modules/
 # Build
 dist/
 coverage/
+
+# Assistant IA : préférences personnelles, non partagées
+CLAUDE.local.md
+.claude/settings.local.json
