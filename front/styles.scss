@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap');
+
+:root {
+  color-scheme: light;
+  --fond: #f5f6f2;
+  --surface: #ffffff;
+  --texte: #18251f;
+  --secondaire: #66736b;
+  --vert: #245c43;
+  --vert-clair: #e5f0e8;
+  --orange: #e59a45;
+  --bordure: #e3e8e2;
+  --danger: #a63b35;
+  font-family: 'DM Sans', sans-serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--fond); color: var(--texte); }
+button, input, select, textarea { font: inherit; }
+button { cursor: pointer; }
+a { color: inherit; text-decoration: none; }
+h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+.page { max-width: 1180px; margin: 0 auto; padding: 34px 28px 64px; }
+.page-entete { display:flex; justify-content:space-between; align-items:flex-end; gap:20px; margin-bottom:28px; }
+.page-entete h1 { margin:0 0 7px; font-size:clamp(2rem,4vw,3rem); letter-spacing:-.05em; }
+.surtitre { color:var(--vert); font-size:.76rem; font-weight:700; letter-spacing:.13em; text-transform:uppercase; }
+.texte-secondaire { color:var(--secondaire); }
+.grille { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:18px; }
+.carte { background:var(--surface); border:1px solid var(--bordure); border-radius:18px; padding:22px; box-shadow:0 5px 18px #15251b08; }
+.bouton { border:0; border-radius:10px; padding:11px 16px; background:var(--vert); color:white; font-weight:700; }
+.bouton:disabled { opacity:.5; cursor:not-allowed; }
+.bouton-secondaire { background:var(--vert-clair); color:var(--vert); }
+.bouton-danger { background:#f8e9e7; color:var(--danger); }
+.champ { display:grid; gap:7px; margin:13px 0; }
+.champ label { font-size:.88rem; font-weight:700; }
+.champ input, .champ select, .champ textarea { width:100%; border:1px solid var(--bordure); border-radius:10px; padding:12px; background:white; color:var(--texte); }
+.champ textarea { min-height:90px; resize:vertical; }
+.actions { display:flex; flex-wrap:wrap; gap:10px; align-items:center; }
+.erreur { color:var(--danger); background:#f8e9e7; border-radius:10px; padding:12px 14px; }
+.succes { color:var(--vert); background:var(--vert-clair); border-radius:10px; padding:12px 14px; }
+.etat { display:inline-flex; padding:5px 9px; border-radius:99px; background:var(--vert-clair); color:var(--vert); font-size:.78rem; font-weight:700; }
+.tableau { width:100%; border-collapse:collapse; background:white; border-radius:14px; overflow:hidden; }
+.tableau th,.tableau td { padding:13px 15px; border-bottom:1px solid var(--bordure); text-align:left; font-size:.9rem; }
+.tableau th { color:var(--secondaire); font-size:.75rem; text-transform:uppercase; letter-spacing:.06em; }
+.vide { padding:34px; text-align:center; color:var(--secondaire); background:white; border:1px dashed #cbd5cc; border-radius:16px; }
+.chargement { color:var(--secondaire); padding:25px 0; }
+@media (max-width:650px) {
+  .page { padding:24px 16px 48px; }
+  .page-entete { align-items:flex-start; flex-direction:column; }
+  .tableau { display:block; overflow-x:auto; }
+}
+
+.barre { min-height:72px; display:flex; align-items:center; gap:30px; padding:0 4vw; background:#fff; border-bottom:1px solid var(--bordure); position:sticky; top:0; z-index:5; }
+.marque { display:flex; align-items:center; gap:10px; font:800 1.2rem Manrope,sans-serif; white-space:nowrap; }
+.marque-icone { display:grid; place-items:center; width:34px; height:34px; background:var(--vert); color:white; border-radius:10px; }
+.marque-fin { color:var(--orange); }
+.navigation { display:flex; align-items:center; gap:5px; flex:1; overflow-x:auto; }
+.navigation a { padding:9px 11px; color:var(--secondaire); border-radius:9px; font-size:.88rem; white-space:nowrap; }
+.navigation a.actif { background:var(--vert-clair); color:var(--vert); font-weight:700; }
+.session { display:flex; align-items:center; gap:10px; }
+.session-login { font-size:.85rem; font-weight:700; }
+@media(max-width:900px){.barre{flex-wrap:wrap;padding:12px 16px;gap:10px}.navigation{order:3;flex-basis:100%}.session{margin-left:auto}}

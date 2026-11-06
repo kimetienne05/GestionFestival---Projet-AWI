@@ -1,0 +1,19 @@
+<header class="barre">
+  <a class="marque" routerLink="/festivals"><span class="marque-icone">F</span><span>festival<span class="marque-fin">.</span></span></a>
+  <nav class="navigation">
+    @for (lien of liens; track lien.url) {
+      @if (lien.url === '/festivals' || (session.compte() && (session.compte()!.niveau >= lien.niveau || ((lien.url === '/facturation' || lien.url === '/reservations') && session.compte()!.estTresorier)))) {
+        <a [routerLink]="lien.url" routerLinkActive="actif">{{ lien.libelle }}</a>
+      }
+    }
+  </nav>
+  <div class="session">
+    @if (session.compte(); as compte) {
+      <span class="session-login">{{ compte.login }}</span>
+      <button class="bouton bouton-secondaire" (click)="session.deconnecter()">Déconnexion</button>
+    } @else {
+      <a class="bouton" routerLink="/connexion">Connexion</a>
+    }
+  </div>
+</header>
+<main><router-outlet /></main>

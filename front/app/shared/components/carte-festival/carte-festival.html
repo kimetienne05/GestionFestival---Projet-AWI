@@ -1,0 +1,15 @@
+<article class="carte-festival">
+  <div class="visuel">
+    <span class="pastille">Festival de jeux</span>
+    <span class="initiale">{{ festival().nom.charAt(0).toUpperCase() }}</span>
+  </div>
+  <div class="contenu">
+    <p class="lieu">{{ festival().lieu }}</p>
+    <h2>{{ festival().nom }}</h2>
+    <p class="dates">{{ festival().dateDebut | date:'d MMMM y' }} — {{ festival().dateFin | date:'d MMMM y' }}</p>
+    <div class="bas">
+      <span class="disponibilite">{{ festival().tablesDisponibles ?? '—' }} tables disponibles</span>
+      <a [routerLink]="['/festivals', festival().id]" class="lien">Découvrir <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</article>

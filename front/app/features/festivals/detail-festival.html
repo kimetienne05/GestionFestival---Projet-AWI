@@ -1,0 +1,29 @@
+<section class="page">
+  <a routerLink="/festivals" class="texte-secondaire">← Tous les festivals</a>
+  @if (chargement()) { <p class="chargement">Chargement…</p> }
+  @if (erreur()) { <p class="erreur">{{ erreur() }}</p> }
+  @if (service.festivalCourant(); as festival) {
+    <div class="page-entete" style="margin-top:24px">
+      <div><p class="surtitre">{{ festival.lieu }}</p><h1>{{ festival.nom }}</h1><p class="texte-secondaire">{{ festival.dateDebut | date:'longDate' }} — {{ festival.dateFin | date:'longDate' }}</p></div>
+      @if (session.compte()?.niveau === 5) {
+        <div class="actions"><a class="bouton bouton-secondaire" [routerLink]="['/festivals',id,'modifier']">Modifier</a><button class="bouton bouton-danger" (click)="supprimer()">Supprimer</button></div>
+      }
+    </div>
+    <div class="grille">
+      <article class="carte"><p class="surtitre">Disponibilité</p><h2>{{ festival.tablesDisponibles ?? '—' }}</h2><p class="texte-secondaire">Tables disponibles</p></article>
+      <article class="carte"><p class="surtitre">Surface</p><h2>{{ festival.surfaceTotaleM2 | number }} m²</h2><p class="texte-secondaire">Surface totale</p></article>
+      <article class="carte"><p class="surtitre">Repas</p><h2>{{ festival.prixRepas }} €</h2><p class="texte-secondaire">Prix par repas</p></article>
+    </div>
+    <h2 style="margin-top:36px">Zones tarifaires</h2>
+    <div class="grille">
+      @for (zone of service.zonesTarifaires(); track zone.id) {
+        <article class="carte"><h3>{{ zone.nom }}</h3><p>{{ zone.capacite }} tables au total</p><p>{{ zone.tablesRestantes ?? '—' }} restantes</p>@if (session.compte()) { <strong>{{ zone.prixTable }} € / table</strong> }</article>
+      } @empty { <div class="vide">Aucune zone tarifaire renseignée.</div> }
+    </div>
+    <h2 style="margin-top:36px">Zones du plan</h2>
+    <div class="grille">
+      @for (zone of service.zonesPlan(); track zone.id) { <article class="carte"><h3>{{ zone.nom }}</h3><p>{{ zone.nbTables }} tables</p></article> }
+      @empty { <div class="vide">Aucune zone du plan renseignée.</div> }
+    </div>
+  }
+</section>
