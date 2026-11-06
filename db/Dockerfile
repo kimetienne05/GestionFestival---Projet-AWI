@@ -6,8 +6,7 @@ ENV POSTGRES_USER=festival \
     POSTGRES_DB=festival \
     TZ=Europe/Paris
 
-# Initialisation locale ; les migrations applicatives sont gerees par l'API
-COPY init.sql /docker-entrypoint-initdb.d/init.sql
+# Le schema est cree par les migrations, appliquees par l'API au demarrage
 
 EXPOSE 5432
 
