@@ -1,0 +1,11 @@
+<section class="page" style="max-width:520px;padding-top:70px">
+  <div class="carte">
+    <p class="surtitre">Espace équipe</p><h1>Connexion</h1><p class="texte-secondaire">Connectez-vous pour accéder à la gestion du festival.</p>
+    <form (ngSubmit)="connecter()">
+      <div class="champ"><label for="login">Identifiant</label><input id="login" name="login" autocomplete="username" required [(ngModel)]="login"></div>
+      <div class="champ"><label for="motDePasse">Mot de passe</label><input id="motDePasse" name="motDePasse" type="password" autocomplete="current-password" required [(ngModel)]="motDePasse"></div>
+      @if (erreur()) { <p class="erreur">{{ erreur() }}</p> }
+      <button class="bouton" style="width:100%;margin-top:10px" [disabled]="chargement()">{{ chargement() ? 'Connexion…' : 'Se connecter' }}</button>
+    </form>
+  </div>
+</section>

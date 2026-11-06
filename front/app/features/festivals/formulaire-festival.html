@@ -1,0 +1,16 @@
+<section class="page">
+  <div class="page-entete"><div><p class="surtitre">Administration</p><h1>{{ id ? 'Modifier le festival' : 'Créer un festival' }}</h1><p class="texte-secondaire">Renseignez les informations générales du festival.</p></div></div>
+  <form class="carte" style="max-width:720px" (ngSubmit)="enregistrer()">
+    <div class="champ"><label for="nom">Nom du festival</label><input id="nom" name="nom" required [(ngModel)]="donnees.nom"></div>
+    <div class="champ"><label for="lieu">Lieu</label><input id="lieu" name="lieu" required [(ngModel)]="donnees.lieu"></div>
+    <div class="grille">
+      <div class="champ"><label for="debut">Date de début</label><input id="debut" type="date" name="debut" required [(ngModel)]="donnees.dateDebut"></div>
+      <div class="champ"><label for="fin">Date de fin</label><input id="fin" type="date" name="fin" required [(ngModel)]="donnees.dateFin"></div>
+      <div class="champ"><label for="surface">Surface totale (m²)</label><input id="surface" type="number" min="1" name="surface" required [(ngModel)]="donnees.surfaceTotaleM2"></div>
+      <div class="champ"><label for="taille">Taille d’une table (m²)</label><input id="taille" type="number" min="1" name="taille" required [(ngModel)]="donnees.tailleTableM2"></div>
+      <div class="champ"><label for="repas">Prix d’un repas (€)</label><input id="repas" type="number" min="0" step="0.01" name="repas" required [(ngModel)]="donnees.prixRepas"></div>
+    </div>
+    @if (erreur()) { <p class="erreur">{{ erreur() }}</p> }
+    <div class="actions"><button class="bouton" [disabled]="envoi()">{{ envoi() ? 'Enregistrement…' : 'Enregistrer' }}</button><button class="bouton bouton-secondaire" type="button" (click)="routeur.navigateByUrl('/festivals')">Annuler</button></div>
+  </form>
+</section>

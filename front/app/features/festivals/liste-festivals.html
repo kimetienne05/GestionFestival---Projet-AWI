@@ -1,0 +1,12 @@
+<section class="page">
+  <div class="page-entete">
+    <div><p class="surtitre">À vos agendas</p><h1>Les festivals</h1><p class="texte-secondaire">Retrouvez les prochains rendez-vous autour du jeu de société.</p></div>
+    @if (session.compte()?.niveau === 5) { <a routerLink="/festivals/nouveau" class="bouton">Créer un festival +</a> }
+  </div>
+  @if (chargement()) { <p class="chargement">Chargement des festivals…</p> }
+  @if (erreur()) { <p class="erreur">{{ erreur() }}</p> }
+  @if (!chargement() && !erreur() && service.festivals().length === 0) { <div class="vide">Aucun festival n’est disponible pour le moment.</div> }
+  <div class="grille">
+    @for (festival of service.festivals(); track festival.id) { <app-carte-festival [festival]="festival" /> }
+  </div>
+</section>

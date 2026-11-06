@@ -1,0 +1,13 @@
+.carte-festival { overflow:hidden; border:1px solid var(--bordure); border-radius:19px; background:white; transition:transform .2s,box-shadow .2s; }
+.carte-festival:hover { transform:translateY(-3px); box-shadow:0 14px 30px #15251b12; }
+.visuel { height:145px; position:relative; display:grid; place-items:center; overflow:hidden; background:linear-gradient(135deg,#1d4b39,#86a98a); color:white; }
+.visuel:after { content:""; position:absolute; width:240px; height:240px; border:1px solid #ffffff38; border-radius:50%; right:-50px; top:-90px; box-shadow:0 0 0 24px #ffffff10,0 0 0 48px #ffffff0a; }
+.pastille { position:absolute; z-index:1; left:16px; top:15px; padding:6px 10px; background:#ffffff25; border-radius:99px; font-size:.72rem; }
+.initiale { font:800 5rem Manrope,sans-serif; opacity:.88; }
+.contenu { padding:19px; }
+.lieu { margin:0 0 5px; color:var(--vert); font-size:.8rem; font-weight:700; }
+h2 { margin:0; font-size:1.3rem; letter-spacing:-.03em; }
+.dates { color:var(--secondaire); font-size:.87rem; }
+.bas { display:flex; justify-content:space-between; align-items:center; gap:8px; border-top:1px solid var(--bordure); padding-top:14px; margin-top:16px; }
+.disponibilite { color:var(--secondaire); font-size:.8rem; }
+.lien { color:var(--vert); font-weight:700; font-size:.88rem; }
