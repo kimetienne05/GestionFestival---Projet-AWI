@@ -1,0 +1,56 @@
+#!/bin/sh
+# Vérifie le format des messages de commit (conventions/CONTRIBUTING.md, section 3).
+# Activation, une fois par poste : git config core.hooksPath .githooks
+
+fichier="$1"
+# Lignes du message, sans les commentaires (# …) du modèle .gitmessage ni les lignes vides du début
+message=$(grep -v '^#' "$fichier" | sed '/./,$!d')
+premiere=$(printf '%s\n' "$message" | sed -n '1p')
+
+# Messages produits par git lui-même : acceptés tels quels
+case "$premiere" in
+  "Merge "*|"Revert "*|"fixup! "*|"squash! "*|"amend! "*) exit 0 ;;
+esac
+
+erreurs=""
+ajouter() { erreurs="${erreurs}  - $1
+"; }
+
+types='feat|fix|docs|test|refactor|style|perf|build|ci|chore'
+if ! printf '%s\n' "$premiere" | grep -Eq "^($types)(\([a-z0-9-]+\))?!?: .+"; then
+  ajouter "première ligne au format « type(portée): description » (types : feat, fix, docs, test, refactor, style, perf, build, ci, chore)"
+else
+  description=${premiere#*: }
+  if printf '%s\n' "$description" | grep -Eq '^[A-Z]'; then
+    ajouter "description en minuscules (« ajoute … », pas « Ajoute … »)"
+  fi
+  case "$description" in
+    *.) ajouter "pas de point à la fin de la première ligne" ;;
+  esac
+fi
+
+longueur=$(printf '%s' "$premiere" | wc -m | tr -d ' ')
+if [ "$longueur" -gt 72 ]; then
+  ajouter "première ligne de 72 caractères au plus (actuellement $longueur)"
+fi
+
+deuxieme=$(printf '%s\n' "$message" | sed -n '2p')
+if [ -n "$deuxieme" ]; then
+  ajouter "ligne vide entre la première ligne et le corps"
+fi
+
+if ! printf '%s\n' "$message" | grep -Eq '^(Refs|Closes) #[0-9]+'; then
+  ajouter "numéro d'issue sur une ligne « Refs #12 » ou « Closes #12 »"
+fi
+
+if [ -n "$erreurs" ]; then
+  echo "Message de commit refusé (conventions/CONTRIBUTING.md, section 3) :" >&2
+  printf '%s' "$erreurs" >&2
+  echo "" >&2
+  echo "Exemple :" >&2
+  echo "  feat(reservations): calcule le prix avec la remise de précommande" >&2
+  echo "" >&2
+  echo "  Refs #28" >&2
+  exit 1
+fi
+exit 0
