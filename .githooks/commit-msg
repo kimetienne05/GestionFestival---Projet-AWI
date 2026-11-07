@@ -22,7 +22,7 @@ if ! printf '%s\n' "$premiere" | grep -Eq "^($types)(\([a-z0-9-]+\))?!?: .+"; th
 else
   description=${premiere#*: }
   if printf '%s\n' "$description" | grep -Eq '^[A-Z]'; then
-    ajouter "description en minuscules (« ajoute … », pas « Ajoute … »)"
+    ajouter "description en minuscules (« add … », pas « Add … »)"
   fi
   case "$description" in
     *.) ajouter "pas de point à la fin de la première ligne" ;;
@@ -48,7 +48,7 @@ if [ -n "$erreurs" ]; then
   printf '%s' "$erreurs" >&2
   echo "" >&2
   echo "Exemple :" >&2
-  echo "  feat(reservations): calcule le prix avec la remise de précommande" >&2
+  echo "  feat(reservations): compute the price with the pre-order discount" >&2
   echo "" >&2
   echo "  Refs #28" >&2
   exit 1

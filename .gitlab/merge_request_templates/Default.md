@@ -1,31 +1,31 @@
-## Objet
+## Purpose
 
-<!-- Ce que fait cette merge request, en deux ou trois phrases. -->
+<!-- What this merge request does, in two or three sentences. Write the whole MR in English. -->
 
 Closes #
 
-## Changements
+## Changes
 
 -
 
-## Comment vérifier
+## How to test
 
-<!-- Commandes ou étapes pour tester, par exemple : docker compose up --build, puis … -->
+<!-- Commands or steps to test, for example: docker compose up --build, then … -->
 
-## Liste de vérification (CONTRIBUTING.md, section 4)
+## Checklist (CONTRIBUTING.md, section 4)
 
-Auteur, avant de demander la revue :
-- [ ] Le titre suit le format d'un message de commit
-- [ ] Le pipeline est vert
-- [ ] Des tests couvrent le nouveau comportement
+Author, before requesting the review:
+- [ ] The title follows the commit message format, in English
+- [ ] The pipeline is green
+- [ ] Tests cover the new behaviour
 
-Personne qui relit :
-- [ ] Respect du DAT et des ADR (couches, SQL dans les dépôts, droits vérifiés dans l'API)
-- [ ] Requêtes SQL paramétrées
-- [ ] Aucun secret dans le code
-- [ ] Noms conformes à CONTRIBUTING.md
-- [ ] DAT et journal des évolutions mis à jour si l'architecture change
+Reviewer:
+- [ ] Follows the DAT and the ADRs (layers, SQL in the repositories, permissions checked in the API)
+- [ ] Parameterized SQL queries
+- [ ] No secret in the code
+- [ ] Names follow CONTRIBUTING.md
+- [ ] DAT and change log updated if the architecture changes
 
-## Utilisation de l'IA
+## AI usage
 
-<!-- Outil utilisé et ce qu'il a produit, ou « aucune contribution importante de l'IA ». -->
+<!-- Tool used and what it produced, or "no significant AI contribution". -->

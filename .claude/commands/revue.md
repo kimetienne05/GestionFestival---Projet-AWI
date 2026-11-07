@@ -11,7 +11,7 @@ Vérifie chaque point de `CONTRIBUTING.md` (section 4) et des règles de `.claud
 2. **SQL** : uniquement dans `back/src/depots`, toujours paramétré ; transactions et verrous là où plusieurs tables sont écrites (ADR-008).
 3. **Secrets** : aucun mot de passe, clé, jeton ni fichier `.env` dans le diff.
 4. **Tests** : présents pour tout nouveau comportement ; aucun des quatre tests obligatoires affaibli.
-5. **Noms** : conformes à CONTRIBUTING (fichiers, identifiants en français, tables, routes) ; branche et messages de commit au bon format.
+5. **Noms** : conformes à CONTRIBUTING (fichiers, identifiants en français, tables, routes) ; branche et messages de commit au bon format, messages de commit en anglais.
 6. **Base** : nouvelle migration plutôt que modification d'une migration fusionnée ; migration additive.
 7. **DAT** : si l'architecture change, le DAT et son journal des évolutions sont-ils à mettre à jour ?
 

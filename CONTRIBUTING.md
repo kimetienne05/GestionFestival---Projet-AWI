@@ -64,14 +64,15 @@ On ne travaille jamais directement sur `main` ni sur `develop` : chaque branche 
 Format (inspiré de *Conventional Commits*) :
 
 ```
-type(portée): description à l'impératif, en minuscules, sans point final
+type(scope): imperative description, lowercase, no final period
 
-Corps facultatif : pourquoi ce changement, ce qu'il implique.
+Optional body: why this change, what it implies.
 
 Refs #12
 ```
 
-- **Première ligne** : 72 caractères au plus, à l'impératif (« ajoute », « corrige »).
+- **Langue** : le message est **en anglais** (première ligne et corps). Les commits déjà faits en français restent tels quels.
+- **Première ligne** : 72 caractères au plus, à l'impératif (« add », « fix », pas « added » ni « adds »).
 - **Types** :
 
 | Type | Usage |
@@ -94,10 +95,10 @@ Refs #12
 Exemples :
 
 ```
-feat(reservations): calcule le prix avec la remise de précommande
-fix(api): renvoie 409 quand la capacité de la zone est dépassée
-docs(dat): ajoute les codes HTTP à la liste des endpoints
-test(factures): vérifie qu'une facture émise ne peut pas être modifiée
+feat(reservations): compute the price with the pre-order discount
+fix(api): return 409 when the zone capacity is exceeded
+docs(dat): add http status codes to the endpoint list
+test(factures): check that an issued invoice cannot be modified
 ```
 
 Le format est vérifié par le crochet `.githooks/commit-msg` (installation en section 5) : un message non conforme est refusé, avec l'explication. Les messages produits par git lui-même (`Merge …`, `Revert …`) sont acceptés.
@@ -105,6 +106,7 @@ Le format est vérifié par le crochet `.githooks/commit-msg` (installation en s
 ## 4. Merge requests et revues
 
 - Une merge request par issue. Son titre suit le même format qu'un message de commit.
+- Titres et descriptions des merge requests et des issues, et commentaires de revue : **en anglais**.
 - Elle est **relue et approuvée par un autre membre que son auteur** avant d'être fusionnée. Le pipeline doit être vert.
 - Le modèle `.gitlab/merge_request_templates/Default.md` pré-remplit la description de chaque merge request avec la liste de vérification de la revue (choisir le modèle « Default » s'il n'est pas proposé d'office).
 - La personne qui relit vérifie au minimum :

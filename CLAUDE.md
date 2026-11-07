@@ -64,7 +64,8 @@ Ne jamais proposer `npm install` sur le poste : les dépendances s'installent da
 
 Le détail est dans `CONTRIBUTING.md`. L'essentiel :
 - branche `type/numero-issue-description` (`feat/28-prix-reservation`) ; jamais de travail direct sur `main` ;
-- commit `type(portée): description à l'impératif, en minuscules` puis, en dernière ligne, `Refs #n` ou `Closes #n` ;
+- commit **en anglais** : `type(scope): description à l'impératif, en minuscules` (`fix(api): return 409 when the zone is full`) puis, en dernière ligne, `Refs #n` ou `Closes #n` ;
+- titres et descriptions des merge requests et des issues **en anglais** ;
 - pour commiter, utiliser `/commit` : proposer le message, puis **attendre la confirmation** avant `git commit` ;
 - une merge request par issue, relue par un autre membre ; `/revue` applique la liste de vérification ;
 - si un message ou un nom écrit par l'équipe ne respecte pas les conventions, **proposer la correction** ;
@@ -100,4 +101,6 @@ Après une modification d'architecture acceptée par l'équipe, rappeler qu'il f
 
 ## 10. Langue
 
-Identifiants du code en français, sans accents, comme dans le DAT (`reservation`, `exigerNiveau`, `avecTransaction`). Commentaires, documentation, messages de commit et messages d'erreur destinés aux utilisateurs en français.
+Identifiants du code en français, sans accents, comme dans le DAT (`reservation`, `exigerNiveau`, `avecTransaction`). Commentaires, documentation et messages d'erreur destinés aux utilisateurs en français.
+
+Tout ce qui est écrit dans git et GitLab est **en anglais** : messages de commit, titres et descriptions des merge requests et des issues, commentaires de revue. Les commits et merge requests déjà faits en français restent tels quels.

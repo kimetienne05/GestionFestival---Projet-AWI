@@ -10,8 +10,8 @@ Prépare un commit des changements **indexés**, selon `CONTRIBUTING.md` (sectio
    - Branche `main` ou `develop` : préviens qu'on ne commite pas directement dessus et propose de créer une branche `type/numero-issue-description`.
    - Si un fichier indexé ressemble à un secret (`.env`, clé, mot de passe en clair), arrête-toi et signale-le.
 2. Numéro d'issue : `$ARGUMENTS` s'il est donné, sinon celui du nom de la branche (`feat/28-…` → 28). Sans numéro, demande-le.
-3. Rédige le message :
-   - première ligne `type(portée): description`, 72 caractères au plus, à l'impératif, en minuscules, sans point final ;
+3. Rédige le message **en anglais** (première ligne et corps) :
+   - première ligne `type(portée): description`, 72 caractères au plus, à l'impératif (`add`, `fix`), en minuscules, sans point final ;
    - types : `feat`, `fix`, `docs`, `test`, `refactor`, `style`, `perf`, `build`, `ci`, `chore` ;
    - portées : `front`, `api`, `db`, `ci`, `docker`, `docs`, ou une fonctionnalité (`reservations`, `factures`, `festivals`, `structures`, `jeux`, `suivi`, `auth`, `comptes`) ;
    - `!` après le type si le changement casse la compatibilité (route, schéma), avec le détail dans le corps ;

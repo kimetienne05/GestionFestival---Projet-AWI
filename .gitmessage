@@ -1,8 +1,8 @@
 
 
-# type(portée): description à l'impératif, en minuscules, sans point final
+# type(scope): imperative description, lowercase, no final period   (IN ENGLISH)
 #
-# Corps facultatif : pourquoi ce changement, ce qu'il implique.
+# Optional body: why this change, what it implies.
 #
 # Refs #12   (ou Closes #12 si le commit termine l'issue)
 #
