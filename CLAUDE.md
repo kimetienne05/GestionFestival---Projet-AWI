@@ -63,7 +63,7 @@ Ne jamais proposer `npm install` sur le poste : les dépendances s'installent da
 ## 6. Git et conventions
 
 Le détail est dans `CONTRIBUTING.md`. L'essentiel :
-- branche `type/numero-issue-description` (`feat/28-prix-reservation`) ; jamais de travail direct sur `main` ;
+- branche créée depuis l'issue avec le bouton « Create branch » de GitLab, qui la nomme `numero-titre-de-l-issue` (`13-set-up-the-frontend-skeleton`) ; jamais de travail direct sur `main` ni sur `develop` ;
 - commit **en anglais** : `type(scope): description à l'impératif, en minuscules` (`fix(api): return 409 when the zone is full`) puis, en dernière ligne, `Refs #n` ou `Closes #n` ;
 - titres et descriptions des merge requests et des issues **en anglais** ;
 - pour commiter, utiliser `/commit` : proposer le message, puis **attendre la confirmation** avant `git commit` ;

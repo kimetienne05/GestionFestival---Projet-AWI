@@ -7,9 +7,9 @@ Prépare un commit des changements **indexés**, selon `CONTRIBUTING.md` (sectio
 
 1. Lis `git status`, `git diff --cached` et `git branch --show-current`.
    - Rien d'indexé : dis-le, montre les fichiers modifiés et arrête-toi. N'indexe rien sans accord.
-   - Branche `main` ou `develop` : préviens qu'on ne commite pas directement dessus et propose de créer une branche `type/numero-issue-description`.
+   - Branche `main` ou `develop` : préviens qu'on ne commite pas directement dessus et propose de créer la branche depuis l'issue avec le bouton « Create branch » de GitLab (nom `numero-titre-de-l-issue`).
    - Si un fichier indexé ressemble à un secret (`.env`, clé, mot de passe en clair), arrête-toi et signale-le.
-2. Numéro d'issue : `$ARGUMENTS` s'il est donné, sinon celui du nom de la branche (`feat/28-…` → 28). Sans numéro, demande-le.
+2. Numéro d'issue : `$ARGUMENTS` s'il est donné, sinon le premier nombre du nom de la branche (`28-compute-price…` → 28, `docs/77-…` → 77). Sans numéro, demande-le.
 3. Rédige le message **en anglais** (première ligne et corps) :
    - première ligne `type(portée): description`, 72 caractères au plus, à l'impératif (`add`, `fix`), en minuscules, sans point final ;
    - types : `feat`, `fix`, `docs`, `test`, `refactor`, `style`, `perf`, `build`, `ci`, `chore` ;

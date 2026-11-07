@@ -49,13 +49,14 @@ back/src/types/reservation.types.ts
 
 ## 2. Branches
 
-Format : `type/numero-issue-description-courte`, en kebab-case.
+Chaque branche est créée depuis son issue, avec le bouton **« Create branch »** de GitLab (dans l'issue, menu de « Create merge request »), en partant de `develop`. GitLab la nomme `numero-titre-de-l-issue`, en kebab-case : on garde ce nom.
 
 ```
-feat/12-calcul-prix-reservation
-fix/27-capacite-zone-depassee
-docs/5-dat-endpoints
+10-dockerize-the-project
+13-set-up-the-frontend-skeleton
 ```
+
+Sans bouton GitLab (branche créée à la main), on suit le même format : `numero-issue-description-courte`, en anglais. Les branches déjà créées au format `type/numero-…` (`docs/77-instructions-ia`) restent valables.
 
 On ne travaille jamais directement sur `main` ni sur `develop` : chaque branche part de `develop` et y revient par une merge request.
 
