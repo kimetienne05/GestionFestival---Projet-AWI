@@ -13,7 +13,7 @@ Prépare un commit des changements **indexés**, selon `CONTRIBUTING.md` (sectio
 3. Rédige le message **en anglais** (première ligne et corps) :
    - première ligne `type(portée): description`, 72 caractères au plus, à l'impératif (`add`, `fix`), en minuscules, sans point final ;
    - types : `feat`, `fix`, `docs`, `test`, `refactor`, `style`, `perf`, `build`, `ci`, `chore` ;
-   - portées : `front`, `api`, `db`, `ci`, `docker`, `docs`, ou une fonctionnalité (`reservations`, `factures`, `festivals`, `structures`, `jeux`, `suivi`, `auth`, `comptes`) ;
+   - portées : `front`, `back`, `db`, `ci`, `docker`, `docs`, ou une fonctionnalité (`reservations`, `factures`, `festivals`, `structures`, `jeux`, `suivi`, `auth`, `comptes`) ;
    - `!` après le type si le changement casse la compatibilité (route, schéma), avec le détail dans le corps ;
    - corps facultatif : pourquoi, pas comment ;
    - dernière ligne : `Refs #n`, ou `Closes #n` si le commit termine l'issue.

@@ -47,7 +47,7 @@ Types partagés : `back/src/types/<ressource>.types.ts`. Erreurs métier : class
 - JWT (8 h) dans un cookie `HttpOnly; Secure; SameSite=Strict`, jamais dans le corps ni dans `localStorage` (ADR-006).
 - `helmet` ; au plus 10 essais de connexion par minute et par IP ; PDF de règles limités en taille et en type, enregistrés sous un nom généré (jamais le nom envoyé).
 - Une erreur 500 est journalisée côté serveur sans aucun détail interne dans la réponse (ni pile, ni SQL).
-- Secrets lus dans les variables d'environnement (`DB_PASSWORD`, `JWT_SECRET`…), jamais écrits dans le code.
+- Configuration lue dans les variables d'environnement, jamais écrite dans le code : `PORT`, `DATABASE_URL`, `JWT_SECRET` (32 caractères au moins), `COOKIE_SECURE` (`false` seulement en développement sans HTTPS). Mot de passe de la base : `POSTGRES_PASSWORD`. Ne pas inventer d'autres noms (`DB_HOST`, `DB_PASSWORD`…).
 
 ## Tests
 

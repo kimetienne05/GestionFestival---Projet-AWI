@@ -89,15 +89,15 @@ Refs #12
 | `ci` | pipeline GitLab |
 | `chore` | tâches diverses |
 
-- **Portées** : `front`, `api`, `db`, `ci`, `docker`, `docs`, ou une fonctionnalité (`reservations`, `factures`, `festivals`, `structures`, `jeux`, `suivi`, `auth`, `comptes`).
+- **Portées** : `front`, `back`, `db`, `ci`, `docker`, `docs`, ou une fonctionnalité (`reservations`, `factures`, `festivals`, `structures`, `jeux`, `suivi`, `auth`, `comptes`).
 - **Dernière ligne** : le numéro d'issue, avec `Refs #12`, ou `Closes #12` si le commit termine l'issue. Seules des lignes d'attribution (`Co-Authored-By: …`) peuvent la suivre.
-- Changement qui casse la compatibilité (route, schéma) : `!` après le type, par exemple `feat(api)!: …`, et le détail dans le corps.
+- Changement qui casse la compatibilité (route, schéma) : `!` après le type, par exemple `feat(back)!: …`, et le détail dans le corps.
 
 Exemples :
 
 ```
 feat(reservations): compute the price with the pre-order discount
-fix(api): return 409 when the zone capacity is exceeded
+fix(back): return 409 when the zone capacity is exceeded
 docs(dat): add http status codes to the endpoint list
 test(factures): check that an issued invoice cannot be modified
 ```

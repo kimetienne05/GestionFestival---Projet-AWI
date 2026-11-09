@@ -29,6 +29,7 @@ Références : DAT sections 7 et 8, figures 5 et 6, ADR-010. Responsable du dép
 ## Secrets
 
 - Aucun secret dans Git : seul `.env.example` est versionné, avec des valeurs d'exemple commentées.
+- Noms des variables, les mêmes partout (compose, CI, `.env.example`) : `PORT`, `DATABASE_URL`, `JWT_SECRET`, `COOKIE_SECURE` pour l'API ; `POSTGRES_PASSWORD` pour la base.
 - En prod, les secrets sont des variables GitLab protégées et masquées (`SSH_KEY`, `JWT_SECRET`, `POSTGRES_PASSWORD`, jeton du registre), écrites dans le `.env` de la VM par le job `deploy`.
 
 ## Pipeline (`.gitlab-ci.yml`)

@@ -21,7 +21,7 @@ Rôles : administrateur (5), commercial (4), gestionnaire de plan (3), gestionna
 |---|---|---|
 | `docs/besoins.pdf` | besoin du client, réponses Q1 à Q26 ; il fait référence en cas de doute fonctionnel | règle métier, cas d'utilisation |
 | `docs/dat.pdf` | architecture : sections 4 à 8, modèle de données (fig. 3), droits (annexe C), endpoints (annexe G), SQL initial (annexe I) | avant toute tâche |
-| `docs/adr.pdf` | les 13 décisions d'architecture, avec leurs options | dès qu'une tâche touche une décision |
+| `docs/adr/adr.pdf` | les 13 décisions d'architecture, avec leurs options | dès qu'une tâche touche une décision |
 
 Avant d'écrire du code, lire la partie du DAT et les ADR qui concernent la tâche (`pdftotext -layout docs/dat.pdf -` pour chercher dedans).
 En cas de contradiction entre une demande et le DAT, **le signaler** au lieu de choisir seul.
@@ -64,7 +64,7 @@ Ne jamais proposer `npm install` sur le poste : les dépendances s'installent da
 
 Le détail est dans `CONTRIBUTING.md`. L'essentiel :
 - branche créée depuis l'issue avec le bouton « Create branch » de GitLab, qui la nomme `numero-titre-de-l-issue` (`13-set-up-the-frontend-skeleton`) ; jamais de travail direct sur `main` ni sur `develop` ;
-- commit **en anglais** : `type(scope): description à l'impératif, en minuscules` (`fix(api): return 409 when the zone is full`) puis, en dernière ligne, `Refs #n` ou `Closes #n` ;
+- commit **en anglais** : `type(scope): description à l'impératif, en minuscules` (`fix(back): return 409 when the zone is full`) puis, en dernière ligne, `Refs #n` ou `Closes #n` ;
 - titres et descriptions des merge requests et des issues **en anglais** ;
 - pour commiter, utiliser `/commit` : proposer le message, puis **attendre la confirmation** avant `git commit` ;
 - une merge request par issue, relue par un autre membre ; `/revue` applique la liste de vérification ;
