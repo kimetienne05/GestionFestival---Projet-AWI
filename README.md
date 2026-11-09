@@ -104,7 +104,7 @@ Le détail est dans les sections 7 et 8 du DAT.
 ├── .gitlab/merge_request_templates/Default.md   # liste de vérification des revues
 ├── docs/
 │   ├── dat.pdf             # Document d'Architecture Technique
-│   ├── adr.pdf             # registre des décisions d'architecture
+│   ├── adr/adr.pdf         # registre des décisions d'architecture (DAT, section 9)
 │   └── besoins.pdf         # document de besoin, qui fait référence
 ├── front/                  # application Angular
 ├── back/                   # API Node.js, TypeScript, Express
@@ -124,7 +124,7 @@ Les fichiers de l'application (`front/`, `back/`, `db/migrations/`, compose et p
 |---|---|
 | [`docs/besoins.pdf`](docs/besoins.pdf) | Besoin du client : notes d'entrevues, besoins, règles de gestion, questions ouvertes. Il fait référence en cas de désaccord avec le client. |
 | [`docs/dat.pdf`](docs/dat.pdf) | Architecture : contraintes, diagrammes C4, modèle de données, sécurité, déploiement, CI/CD, ADR, journal des évolutions |
-| [`docs/adr.pdf`](docs/adr.pdf) | Toutes les décisions d'architecture, avec leurs critères, leurs options et leurs conséquences |
+| [`docs/adr/adr.pdf`](docs/adr/adr.pdf) | Toutes les décisions d'architecture, avec leurs critères, leurs options et leurs conséquences |
 | [`CONTRIBUTING.md`](CONTRIBUTING.md) | Conventions de l'équipe : nommage, branches, commits, merge requests, outils à installer |
 
 Les documents sont rédigés en LaTeX, avec l'accord de l'enseignant ; le dépôt contient les PDF compilés.
