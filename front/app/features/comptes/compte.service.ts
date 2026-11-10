@@ -1,3 +1,15 @@
+/**
+ * Service d'administration des comptes utilisateurs.
+ * Permet de consulter, créer, modifier, désactiver
+ * et supprimer des comptes via l'API.
+ *
+ * TODO :
+ * - Compléter la gestion de la suppression des comptes.
+ * - Ajouter les contrôles nécessaires avant les opérations.
+ * - Ajouter la gestion du changement de mot de passe.
+ * - Vérifier la protection du dernier administrateur.
+ */
+
 import { Injectable, inject, signal } from '@angular/core';
 import { tap } from 'rxjs';
 import { ApiService } from '../../core/services/api.service';

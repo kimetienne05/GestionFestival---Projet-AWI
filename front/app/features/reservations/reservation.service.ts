@@ -1,3 +1,20 @@
+/**
+ * Service de gestion des réservations.
+ * Permet de consulter, créer et modifier les réservations,
+ * de changer leur statut, de les valider ou de les annuler.
+ * Contient également les appels liés aux jeux, aux repas
+ * et aux contacts de suivi.
+ *
+ * TODO :
+ * - Compléter les modèles TypeScript des réservations.
+ * - Ajouter la gestion des tables par zone tarifaire.
+ * - Ajouter la gestion des remises.
+ * - Ajouter la gestion des repas.
+ * - Ajouter la gestion des jeux et de leur placement.
+ * - Compléter la gestion des contacts de suivi.
+ * - Vérifier les règles métier avec le back-end.
+ */
+
 import { Injectable, inject, signal } from '@angular/core';
 import { tap } from 'rxjs';
 import { ApiService } from '../../core/services/api.service';

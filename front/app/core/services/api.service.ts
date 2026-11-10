@@ -1,3 +1,15 @@
+/**
+ * Service centralisant les communications HTTP avec le back-end.
+ * Fournit les méthodes GET, POST, PUT, PATCH, DELETE et la gestion des fichiers.
+ * Toutes les requêtes utilisent le préfixe /api/v1 et transmettent les cookies.
+ *
+ * TODO :
+ * - Vérifier chaque endpoint avec le contrat API du DAT.
+ * - Adapter les formats JSON aux schémas Zod du back-end.
+ * - Gérer les éventuels paramètres de pagination et de tri.
+ * - Vérifier la configuration du proxy entre Angular et l'API.
+ */
+
 import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';

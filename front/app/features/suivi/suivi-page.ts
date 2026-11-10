@@ -1,3 +1,17 @@
+/**
+ * Composant chargé de consulter le suivi des exposants d'un festival.
+ * Permet de sélectionner un festival et de récupérer
+ * les informations de suivi depuis l'API.
+ *
+ * TODO :
+ * - Ajouter la modification du statut des réservations.
+ * - Ajouter l'enregistrement des contacts de suivi.
+ * - Ajouter la gestion des notes.
+ * - Ajouter les informations sur les tables et les prix réservés.
+ * - Ajouter le tri par statut et la date du dernier contact.
+ * - Gérer le festival courant par défaut.
+ */
+
 import { Component, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { FestivalService } from '../festivals/festival.service';

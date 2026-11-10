@@ -1,3 +1,13 @@
+/**
+ * Service centralisant les notifications de l'application.
+ * Permet d'afficher un message de succès ou d'erreur temporaire.
+ *
+ * TODO :
+ * - Ajouter le composant graphique chargé d'afficher les notifications.
+ * - Permettre éventuellement plusieurs notifications simultanées.
+ * - Ajouter des durées d'affichage adaptées au type de notification.
+ */
+
 import { Injectable, signal } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })

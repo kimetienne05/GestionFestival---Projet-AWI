@@ -1,3 +1,15 @@
+/**
+ * Service de gestion des structures.
+ * Permet de récupérer, créer, modifier et supprimer des structures.
+ * Propose également des méthodes de consultation et d'ajout des contacts.
+ *
+ * TODO :
+ * - Ajouter la modification et la suppression des contacts.
+ * - Compléter les méthodes de gestion des contacts.
+ * - Vérifier les formats des données avec les schémas Zod.
+ * - Ajouter les filtres et paramètres de recherche.
+ */
+
 import { Injectable, inject, signal } from '@angular/core';
 import { tap } from 'rxjs';
 import { ApiService } from '../../core/services/api.service';

@@ -1,3 +1,19 @@
+/**
+ * Définit les gardes de navigation Angular.
+ * Vérifie si l'utilisateur est connecté et si son niveau hiérarchique
+ * lui permet d'accéder à une fonctionnalité.
+ * Un garde spécifique est également prévu pour le trésorier.
+ *
+ * TODO :
+ * - Vérifier les droits de chaque route avec la matrice du DAT.
+ * - Distinguer les accès en lecture et en écriture.
+ * - Adapter les accès combinant niveau hiérarchique et rôle trésorier.
+ *
+ * IMPORTANT :
+ * Ces gardes contrôlent uniquement la navigation côté front-end.
+ * La vérification réelle des permissions doit être effectuée par le back-end.
+ */
+
 import { inject } from '@angular/core';
 import { CanMatchFn, Router } from '@angular/router';
 import { map } from 'rxjs';

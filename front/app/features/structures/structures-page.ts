@@ -1,3 +1,15 @@
+/**
+ * Composant de gestion du répertoire des structures.
+ * Charge les structures et permet actuellement leur création
+ * et leur suppression selon le niveau de l'utilisateur.
+ *
+ * TODO :
+ * - Ajouter la modification d'une structure.
+ * - Ajouter la consultation et la gestion de ses contacts.
+ * - Ajouter les formulaires de contact.
+ * - Ajouter la recherche et le tri des structures.
+ */
+
 import { Component, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { StructureService } from './structure.service';

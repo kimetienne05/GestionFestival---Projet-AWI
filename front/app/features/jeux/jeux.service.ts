@@ -1,3 +1,16 @@
+/**
+ * Service de gestion du catalogue des jeux.
+ * Permet de récupérer, créer, modifier et supprimer des jeux.
+ * Gère également les types de jeux ainsi que le dépôt
+ * et le téléchargement des fichiers PDF de règles.
+ *
+ * TODO :
+ * - Compléter les filtres et les paramètres de tri.
+ * - Vérifier la gestion des types de jeux.
+ * - Compléter les données des jeux selon le DAT.
+ * - Vérifier les contraintes de taille et de format des fichiers PDF.
+ */
+
 import { Injectable, inject, signal } from '@angular/core';
 import { tap } from 'rxjs';
 import { ApiService } from '../../core/services/api.service';

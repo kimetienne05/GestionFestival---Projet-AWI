@@ -1,3 +1,16 @@
+/**
+ * Composant chargé d'afficher le détail d'un festival.
+ * Récupère les informations du festival, ses zones tarifaires
+ * et ses zones du plan.
+ * Permet également à l'administrateur de supprimer le festival.
+ *
+ * TODO :
+ * - Ajouter la gestion complète des zones tarifaires.
+ * - Ajouter la gestion complète des zones du plan.
+ * - Ajouter les contrôles de suppression et les messages d'erreur.
+ * - Ajouter les informations complémentaires du festival.
+ */
+
 import { Component, inject, signal } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { DatePipe, DecimalPipe } from '@angular/common';

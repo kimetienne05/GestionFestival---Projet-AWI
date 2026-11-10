@@ -1,3 +1,14 @@
+/**
+ * Composant chargé de récupérer et d'afficher la liste des festivals.
+ * Utilise FestivalService pour charger les données
+ * et CarteFestivalComponent pour représenter chaque festival.
+ *
+ * TODO :
+ * - Ajouter la sélection du festival courant.
+ * - Prévoir un tri ou un filtrage si nécessaire.
+ * - Améliorer la gestion des erreurs et du chargement.
+ */
+
 import { Component, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CarteFestivalComponent } from '../../shared/components/carte-festival/carte-festival';

@@ -1,3 +1,18 @@
+/**
+ * Composant principal de consultation et de gestion des réservations.
+ * Charge les festivals et les réservations.
+ * Permet actuellement de créer un dossier, de filtrer,
+ * de valider et d'annuler une réservation.
+ *
+ * TODO :
+ * - Ajouter la modification complète d'une réservation.
+ * - Ajouter la gestion du workflow.
+ * - Ajouter les formulaires de tables, remises et repas.
+ * - Ajouter la gestion des jeux et de leur placement.
+ * - Ajouter l'historique des contacts de suivi.
+ * - Adapter les actions selon les rôles autorisés.
+ */
+
 import { Component, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ReservationService } from './reservation.service';

@@ -1,3 +1,13 @@
+/**
+ * Définit les routes principales de l'application.
+ * Chaque fonctionnalité est chargée à la demande (lazy loading).
+ *
+ * TODO :
+ * - Vérifier que toutes les routes disposent des gardes adaptés.
+ * - Vérifier les droits d'accès selon la matrice du DAT.
+ * - Ajouter les éventuelles pages manquantes.
+ */
+
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [

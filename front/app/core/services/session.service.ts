@@ -1,3 +1,15 @@
+/**
+ * Gère la session de l'utilisateur connecté.
+ * Permet de récupérer le profil, de se connecter et de se déconnecter.
+ * Le compte courant est conservé dans un signal Angular.
+ *
+ * TODO :
+ * - Tester la restauration de session après rechargement de la page.
+ * - Vérifier la gestion du cookie HttpOnly avec le back-end.
+ * - Ajouter le changement de mot de passe.
+ * - Vérifier les différents cas d'expiration de session.
+ */
+
 import { Injectable, computed, inject, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, catchError, finalize, of, shareReplay, tap } from 'rxjs';

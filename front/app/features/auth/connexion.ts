@@ -1,3 +1,14 @@
+/**
+ * Composant chargé de la connexion des utilisateurs.
+ * Récupère les identifiants saisis, appelle le service de session
+ * et redirige l'utilisateur après authentification.
+ *
+ * TODO :
+ * - Vérifier le comportement avec le véritable endpoint de connexion.
+ * - Améliorer la gestion des erreurs et des tentatives de connexion.
+ * - Ajouter un formulaire de changement de mot de passe.
+ */
+
 import { Component, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';

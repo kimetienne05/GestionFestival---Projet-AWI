@@ -1,3 +1,17 @@
+/**
+ * Service de gestion des festivals.
+ * Permet de récupérer, créer, modifier et supprimer des festivals.
+ * Gère également le chargement et la création des zones tarifaires
+ * et des zones du plan.
+ *
+ * TODO :
+ * - Ajouter la suppression et la modification des zones du plan.
+ * - Vérifier la mise à jour des disponibilités après une réservation.
+ * - Implémenter la gestion complète du festival courant.
+ * - Vérifier la copie d'un festival précédent.
+ * - Compléter les types des réponses API.
+ */
+
 import { Injectable, computed, inject, signal } from '@angular/core';
 import { tap } from 'rxjs';
 import { ApiService } from '../../core/services/api.service';

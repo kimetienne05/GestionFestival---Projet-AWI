@@ -1,3 +1,16 @@
+/**
+ * Composant d'administration des comptes utilisateurs.
+ * Permet actuellement de créer un compte, de consulter les comptes,
+ * de modifier leur niveau et leur rôle trésorier et de les désactiver.
+ *
+ * TODO :
+ * - Ajouter une interface complète de modification des comptes.
+ * - Ajouter la suppression des comptes sans historique.
+ * - Ajouter la gestion des mots de passe.
+ * - Gérer les erreurs liées au dernier administrateur.
+ * - Ajouter les confirmations et retours utilisateur.
+ */
+
 import { Component, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CompteService } from './compte.service';

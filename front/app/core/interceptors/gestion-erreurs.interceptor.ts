@@ -1,3 +1,14 @@
+/**
+ * Intercepteur HTTP chargé de traiter les erreurs renvoyées par l'API.
+ * Gère notamment les erreurs d'authentification, de permissions,
+ * de conflit de données et les erreurs serveur.
+ *
+ * TODO :
+ * - Compléter la gestion des erreurs 400, 404, 413, 429 et 503.
+ * - Adapter les messages aux réponses réellement renvoyées par l'API.
+ * - Éviter les notifications redondantes.
+ */
+
 import { HttpErrorResponse, HttpInterceptorFn } from '@angular/common/http';
 import { inject } from '@angular/core';
 import { Router } from '@angular/router';

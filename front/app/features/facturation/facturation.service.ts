@@ -1,3 +1,18 @@
+/**
+ * Service de gestion de la facturation.
+ * Permet de consulter les factures d'un festival ou d'une réservation,
+ * de créer une facture, de télécharger son PDF, de l'annuler
+ * et de gérer les remboursements et les paiements.
+ *
+ * TODO :
+ * - Ajouter la mise à jour de l'état local après chaque opération.
+ * - Compléter la gestion des paiements.
+ * - Ajouter la gestion des paiements refusés.
+ * - Vérifier les statuts des factures et remboursements.
+ * - Ajouter les types détaillés des paiements.
+ * - Vérifier les contrats API avec le back-end.
+ */
+
 import { Injectable, inject, signal } from '@angular/core';
 import { tap } from 'rxjs';
 import { ApiService } from '../../core/services/api.service';

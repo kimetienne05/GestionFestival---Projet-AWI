@@ -1,3 +1,17 @@
+/**
+ * Composant de consultation et de gestion des factures.
+ * Permet de sélectionner un festival, d'afficher ses factures,
+ * d'en créer, de télécharger les PDF, d'annuler et de rembourser.
+ *
+ * TODO :
+ * - Ajouter l'affichage des paiements associés à chaque facture.
+ * - Ajouter le formulaire d'enregistrement d'un paiement.
+ * - Ajouter le choix du moyen de paiement.
+ * - Ajouter la gestion des chèques refusés.
+ * - Afficher le reste à payer.
+ * - Ajouter les contrôles de droits sur chaque action.
+ */
+
 import { Component, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { FacturationService } from './facturation.service';

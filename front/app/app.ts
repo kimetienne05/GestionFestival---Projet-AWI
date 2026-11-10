@@ -2,6 +2,16 @@ import { Component, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { SessionService } from './core/services/session.service';
 
+/**
+ * Composant racine de l'application.
+ * Initialise la session utilisateur et définit les liens de navigation.
+ *
+ * TODO :
+ * - Adapter l'affichage des liens en respectant le dat.
+ * - Gérer correctement les droits spécifiques du trésorier.
+ * - Ajouter éventuellement un indicateur de chargement de la session.
+ */
+
 @Component({
   selector: 'app-root',
   standalone: true,

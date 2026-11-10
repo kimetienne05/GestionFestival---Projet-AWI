@@ -1,3 +1,14 @@
+/**
+ * Composant de création et de modification d'un festival.
+ * Récupère les données saisies et les transmet à FestivalService.
+ *
+ * TODO :
+ * - Charger les données existantes lors d'une modification.
+ * - Ajouter le choix d'un festival source pour la copie.
+ * - Ajouter les contrôles de cohérence des dates et des surfaces.
+ * - Vérifier les formats attendus par l'API.
+ */
+
 import { Component, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
