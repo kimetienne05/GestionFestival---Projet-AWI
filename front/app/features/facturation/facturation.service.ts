@@ -20,9 +20,13 @@ import { ReponseListe } from '../../core/models/api.types';
 export interface Facture { id:number; numero:string; montantTotal:string; statut:string; reservationId:number; }
 @Injectable({providedIn:'root'}) export class FacturationService {
  private api=inject(ApiService); private _factures=signal<Facture[]>([]); readonly factures=this._factures.asReadonly();
- chargerFestival(id:number){return this.api.get<ReponseListe<Facture>>(`/festivals/${id}/factures`).pipe(tap(x=>this._factures.set(x)));}
+ chargerFestival(id:number){return this.api
+  .get<ReponseListe<Facture>>(`/festivals/${id}/factures`)
+  .pipe(tap(reponse => this._factures.set(reponse.elements)));}
 
- chargerReservation(id:number){return this.api.get<ReponseListe<Facture>>(`/reservations/${id}/factures`).pipe(tap(x=>this._factures.set(x)));}
+ chargerReservation(id:number){return this.api
+  .get<ReponseListe<Facture>>(`/reservations/${id}/factures`)
+  .pipe(tap(reponse => this._factures.set(reponse.elements)));}
 
  creer(reservationId:number,d?:unknown){
     return this.api.post<Facture>(`/reservations/${reservationId}/factures`,d);

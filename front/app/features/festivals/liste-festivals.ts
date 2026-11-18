@@ -14,7 +14,6 @@ import { RouterLink } from '@angular/router';
 import { CarteFestivalComponent } from '../../shared/components/carte-festival/carte-festival';
 import { FestivalService } from './festival.service';
 import { SessionService } from '../../core/services/session.service';
-
 @Component({
   standalone: true,
   imports: [CarteFestivalComponent, RouterLink],

@@ -13,7 +13,7 @@
   <a class="marque" routerLink="/festivals"><span class="marque-icone">F</span><span>festival<span class="marque-fin">.</span></span></a>
   <nav class="navigation">
     @for (lien of liens; track lien.url) {
-      @if (lien.url === '/festivals' || (session.compte() && (session.compte()!.niveau >= lien.niveau || ((lien.url === '/facturation' || lien.url === '/reservations') && session.compte()!.estTresorier)))) {
+      @if (lien.url === '/festivals' || (session.compte() && (session.compte()!.niveau >= lien.niveau || ((lien.url === '/facturation' || lien.url === '/reservations') && session.compte()!.tresorier)))) {
         <a [routerLink]="lien.url" routerLinkActive="actif">{{ lien.libelle }}</a>
       }
     }

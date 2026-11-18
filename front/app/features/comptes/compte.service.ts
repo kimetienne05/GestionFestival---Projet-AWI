@@ -17,7 +17,7 @@ import { Compte, ReponseListe } from '../../core/models/api.types';
 @Injectable({providedIn:'root'}) export class CompteService {
  private api=inject(ApiService); private _comptes=signal<Compte[]>([]); readonly comptes=this._comptes.asReadonly();
  
- charger(){return this.api.get<ReponseListe<Compte>>('/utilisateurs').pipe(tap(r=>this._comptes.set(Array.isArray(r)?r:r.elements)));}
+ charger(){return this.api.get<ReponseListe<Compte>>('/utilisateurs').pipe(tap(reponse => this._comptes.set(reponse.elements)));}
 
  creer(d:Partial<Compte>&{motDePasse?:string}){return this.api.post<Compte>('/utilisateurs',d).pipe(tap(x=>this._comptes.update(l=>[...l,x])));}
  modifier(id:number,d:Partial<Compte>){return this.api.put<Compte>(`/utilisateurs/${id}`,d).pipe(tap(x=>this._comptes.update(l=>l.map(v=>v.id===id?x:v))));}

@@ -45,7 +45,7 @@ export const tresorierGuard: CanMatchFn = () => {
   const routeur = inject(Router);
   return session.chargerSession().pipe(
     map((compte) => {
-      if (compte?.estTresorier) return true;
+      if (compte?.tresorier) return true;
       return compte ? routeur.createUrlTree(['/festivals']) : routeur.createUrlTree(['/connexion']);
     })
   );
@@ -57,7 +57,7 @@ export const commercialOuTresorierGuard: CanMatchFn = () => {
   const routeur = inject(Router);
   return session.chargerSession().pipe(
     map((compte) => {
-      if (compte && (compte.niveau >= 4 || compte.estTresorier)) return true;
+      if (compte && (compte.niveau >= 4 || compte.tresorier)) return true;
       return compte ? routeur.createUrlTree(['/festivals']) : routeur.createUrlTree(['/connexion']);
     })
   );

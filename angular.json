@@ -54,7 +54,8 @@
               "buildTarget": "frontend-festival:build:production"
             },
             "development": {
-              "buildTarget": "frontend-festival:build:development"
+              "buildTarget": "frontend-festival:build:development",
+              "proxyConfig": "proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

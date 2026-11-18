@@ -37,7 +37,7 @@ export class FestivalService {
     );
   }
   chargerFestival(id: number) {
-    return this.api.get<ReponseListe<Festival>>(`/festivals/${id}`).pipe(tap((festival) => this._festivalCourant.set(festival)));
+    return this.api.get<Festival>(`/festivals/${id}`).pipe(tap((festival) => this._festivalCourant.set(festival)));
   }
   creer(donnees: FestivalCreation) {
     return this.api.post<Festival>('/festivals', donnees).pipe(tap((festival) => this._festivals.update((liste) => [...liste, festival])));

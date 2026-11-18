@@ -22,7 +22,7 @@ import { ReponseListe } from '../../core/models/api.types';
 export interface Reservation { id:number; festivalId:number; exposantId:number; statut:string; valideeLe?:string|null; exposant?:string; facturable?:boolean; }
 @Injectable({providedIn:'root'}) export class ReservationService {
  private api=inject(ApiService); private _reservations=signal<Reservation[]>([]); readonly reservations=this._reservations.asReadonly();
- charger(festivalId?:number){return this.api.get<ReponseListe<Reservation>>('/reservations',festivalId?{festivalId}:undefined).pipe(tap(r=>this._reservations.set(Array.isArray(r)?r:r.elements)));}
+ charger(festivalId?:number){return this.api.get<ReponseListe<Reservation>>('/reservations',festivalId?{festivalId}:undefined).pipe(tap(reponse=>this._reservations.set(reponse.elements)));}
  creer(d:unknown){return this.api.post<Reservation>('/reservations',d).pipe(tap(x=>this._reservations.update(l=>[...l,x])));}
  modifier(id:number,d:unknown){return this.api.put<Reservation>(`/reservations/${id}`,d).pipe(tap(x=>this._reservations.update(l=>l.map(v=>v.id===id?x:v))));}
  changerStatut(id:number,statut:string){return this.api.patch<Reservation>(`/reservations/${id}/statut`,{statut});}
