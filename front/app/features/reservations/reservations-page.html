@@ -1,4 +1,72 @@
-<section class="page"><div class="page-entete"><div><p class="surtitre">Commercial</p><h1>Réservations</h1><p class="texte-secondaire">Dossiers exposants, workflow et validation.</p></div></div>
-@if(erreur()){<p class="erreur">{{erreur()}}</p>}
-@if(session.compte()?.niveau && session.compte()!.niveau >= 4){<form class="carte" (ngSubmit)="creer()"><h2>Nouvelle réservation</h2><div class="grille"><div class="champ"><label>Festival</label><select name="festival" required [(ngModel)]="festivalId"><option [ngValue]="null">Choisir un festival</option>@for(f of festivals.festivals();track f.id){<option [ngValue]="f.id">{{f.nom}}</option>}</select></div><div class="champ"><label>ID de la structure exposante</label><input type="number" min="1" name="exposant" required [(ngModel)]="exposantId"></div></div><div class="actions"><button class="bouton">Créer le dossier</button><button class="bouton bouton-secondaire" type="button" (click)="filtrer()">Actualiser</button></div></form>}
-<div class="carte" style="margin-top:20px"><table class="tableau"><thead><tr><th>ID</th><th>Festival</th><th>Exposant</th><th>Statut</th><th>Actions</th></tr></thead><tbody>@for(r of service.reservations();track r.id){<tr><td>#{{r.id}}</td><td>{{r.festivalId}}</td><td>{{r.exposant??r.exposantId}}</td><td><span class="etat">{{r.statut}}</span></td><td class="actions">@if(session.compte()?.niveau && session.compte()!.niveau >= 4){<button class="bouton bouton-secondaire" (click)="valider(r.id)">Valider</button><button class="bouton bouton-danger" (click)="annuler(r.id)">Annuler</button>}</td></tr>}</tbody></table>@if(service.reservations().length===0){<div class="vide">Aucune réservation à afficher.</div>}</div></section>
+<section class="page">
+  <div class="page-entete">
+    <div>
+      <p class="surtitre">Commercial</p>
+      <h1>Réservations</h1>
+      <p class="texte-secondaire">Dossiers exposants, workflow et validation.</p>
+    </div>
+  </div>
+
+  @if (erreur()) {
+    <p class="erreur">{{ erreur() }}</p>
+  }
+
+  @if (session.compte()?.niveau && session.compte()!.niveau >= 4) {
+    <form class="carte" (ngSubmit)="creer()">
+      <h2>Nouvelle réservation</h2>
+      <div class="grille">
+        <div class="champ">
+          <label>Festival</label>
+          <select name="festival" required [(ngModel)]="festivalId">
+            <option [ngValue]="null">Choisir un festival</option>
+            @for (f of festivals.festivals(); track f.id) {
+              <option [ngValue]="f.id">{{ f.nom }}</option>
+            }
+          </select>
+        </div>
+        <div class="champ">
+          <label>ID de la structure exposante</label>
+          <input type="number" min="1" name="exposant" required [(ngModel)]="exposantId">
+        </div>
+      </div>
+      <div class="actions">
+        <button class="bouton">Créer le dossier</button>
+        <button class="bouton bouton-secondaire" type="button" (click)="filtrer()">Actualiser</button>
+      </div>
+    </form>
+  }
+
+  <div class="carte" style="margin-top:20px">
+    <table class="tableau">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Festival</th>
+          <th>Exposant</th>
+          <th>Statut</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (r of service.reservations(); track r.id) {
+          <tr>
+            <td>#{{ r.id }}</td>
+            <td>{{ r.festivalId }}</td>
+            <td>{{ r.exposant ?? r.exposantId }}</td>
+            <td><span class="etat">{{ r.statut }}</span></td>
+            <td class="actions">
+              @if (session.compte()?.niveau && session.compte()!.niveau >= 4) {
+                <button class="bouton bouton-secondaire" (click)="valider(r.id)">Valider</button>
+                <button class="bouton bouton-danger" (click)="annuler(r.id)">Annuler</button>
+              }
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+
+    @if (service.reservations().length === 0) {
+      <div class="vide">Aucune réservation à afficher.</div>
+    }
+  </div>
+</section>

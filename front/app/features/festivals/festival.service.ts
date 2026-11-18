@@ -16,6 +16,7 @@ import { Injectable, computed, inject, signal } from '@angular/core';
 import { tap } from 'rxjs';
 import { ApiService } from '../../core/services/api.service';
 import { Festival, FestivalCreation, ZonePlan, ZoneTarifaire } from '../../core/models/festival.types';
+import { ReponseListe } from '../../core/models/api.types';
 
 @Injectable({ providedIn: 'root' })
 export class FestivalService {
@@ -36,7 +37,7 @@ export class FestivalService {
     );
   }
   chargerFestival(id: number) {
-    return this.api.get<Festival>(`/festivals/${id}`).pipe(tap((festival) => this._festivalCourant.set(festival)));
+    return this.api.get<ReponseListe<Festival>>(`/festivals/${id}`).pipe(tap((festival) => this._festivalCourant.set(festival)));
   }
   creer(donnees: FestivalCreation) {
     return this.api.post<Festival>('/festivals', donnees).pipe(tap((festival) => this._festivals.update((liste) => [...liste, festival])));
@@ -68,4 +69,13 @@ export class FestivalService {
   creerZonePlan(id: number, donnees: Partial<ZonePlan>) {
     return this.api.post<ZonePlan>(`/festivals/${id}/zones-plan`, donnees).pipe(tap((zone) => this._zonesPlan.update((liste) => [...liste, zone])));
   }
+
+  modifierZonePlan(festivalId: number, zoneId: number, donnees: Partial<ZonePlan>) {
+    return this.api.put<ZonePlan>(`/festivals/${festivalId}/zones-plan/${zoneId}`, donnees);
+  }
+
+  supprimerZonePlan(festivalId: number, zoneId: number) {
+    return this.api.delete<void>(`/festivals/${festivalId}/zones-plan/${zoneId}`);
+  }
+
 }

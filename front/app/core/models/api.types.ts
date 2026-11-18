@@ -11,7 +11,7 @@ export interface Compte {
   id: number;
   login: string;
   niveau: number;
-  estTresorier: boolean;
+  tresorier: boolean;
   actif?: boolean;
 }
 export const NOMS_NIVEAUX: Record<number, string> = {
