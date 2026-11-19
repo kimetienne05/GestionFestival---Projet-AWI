@@ -13,7 +13,7 @@ import { Component, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FestivalService } from './festival.service';
-import { FestivalCreation } from '../../core/models/festival.types';
+import { FestivalCreation } from './festival.types';
 
 @Component({
   standalone: true,

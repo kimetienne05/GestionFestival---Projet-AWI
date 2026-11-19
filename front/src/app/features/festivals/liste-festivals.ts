@@ -11,7 +11,7 @@
 
 import { Component, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { CarteFestivalComponent } from '../../shared/components/carte-festival/carte-festival';
+import { CarteFestivalComponent } from '../../shared/carte-festival/carte-festival';
 import { FestivalService } from './festival.service';
 import { SessionService } from '../../core/services/session.service';
 @Component({

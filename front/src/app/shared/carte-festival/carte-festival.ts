@@ -12,7 +12,7 @@
 import { Component, input } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { Festival } from '../../../core/models/festival.types';
+import { Festival } from '../../features/festivals/festival.types';
 
 @Component({
   selector: 'app-carte-festival',

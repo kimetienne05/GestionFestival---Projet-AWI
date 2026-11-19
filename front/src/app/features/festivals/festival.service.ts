@@ -15,7 +15,7 @@
 import { Injectable, computed, inject, signal } from '@angular/core';
 import { tap } from 'rxjs';
 import { ApiService } from '../../core/services/api.service';
-import { Festival, FestivalCreation, ZonePlan, ZoneTarifaire } from '../../core/models/festival.types';
+import { Festival, FestivalCreation, ZonePlan, ZoneTarifaire } from './festival.types';
 import { ReponseListe } from '../../core/models/api.types';
 
 @Injectable({ providedIn: 'root' })
